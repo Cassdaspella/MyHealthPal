@@ -1,1 +1,2 @@
 # MyHealthPal
+We are a dedicated group of UNCC students who envisioned a user-friendly platform to assist individuals in achieving their fitness goals. Our website empowers users to effortlessly calculate and pursue their fitness objectives. We provide features such as calorie tracking, personalized food recommendations, exercise logging, and holistic enhancements to enhance users' fitness journeys.

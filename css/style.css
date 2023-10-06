@@ -1,0 +1,16 @@
+:root {
+
+    --primary-color: #0c3b2e;
+    --primary-bg-color: #6d9773;
+    --light-color: #fff;
+    --pop-color:  #ffba00;
+}
+
+
+
+h1 {
+    padding-left: 1rem;
+    color: var(--primary-color)
+  }
+  
+
