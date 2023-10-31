@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %} {% if not goal %}
+<h2>Select a Goal</h2>
+
+<p>Please choose a goal to view corresponding recipes:</p>
+
+<ul>
+  <li><a href="{{ url_for('food_list', goal='bulking') }}">Bulking</a></li>
+  <li><a href="{{ url_for('food_list', goal='cutting') }}">Cutting</a></li>
+  <li>
+    <a href="{{ url_for('food_list', goal='maintenance') }}">Maintenance</a>
+  </li>
+</ul>
+
+{% else %}
+<h2>Recipes for {{ goal.capitalize() }}</h2>
+
+<ul>
+  {% for recipe in recipes %}
+  <li>
+    <h3>{{ recipe.title }}</h3>
+    <img
+      src="{{ recipe.image }}"
+      alt="{{ recipe.title }}"
+      class="food-list-img"
+    />
+    <p><a href="{{ recipe.sourceUrl }}" target="_blank">View Recipe</a></p>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %} {% endblock %}

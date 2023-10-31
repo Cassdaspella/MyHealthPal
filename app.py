@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import requests
 
 app = Flask(__name__)
 
@@ -50,9 +51,34 @@ def contact():
 def about_us():
     return render_template('about_us.html')
 
-@app.route('/food_list')
-def food_list():
-    return render_template('food_list.html')
+@app.route('/food_list/', defaults={'goal': None}, methods=['GET'])
+@app.route('/food_list/<goal>', methods=['GET'])
+def food_list(goal):
+    # Map user goals to Spoonacular diet options
+    diet_map = {
+        'bulking': 'Whole30',  # This is just a placeholder. You should choose an appropriate diet type from Spoonacular's options.
+        'cutting': 'Ketogenic',
+        'maintenance': 'Balanced'
+    }
+
+    if goal:
+        diet = diet_map.get(goal)
+        
+        # Avoid exposing your API key directly in the code. Consider using environment variables.
+        api_key = "a5e830b7c7764e80aab845f83c02feda"
+
+        # Construct the API URL
+        url = f"https://api.spoonacular.com/recipes/complexSearch?diet={diet}&apiKey={api_key}"
+        
+        response = requests.get(url)
+        data = response.json()
+        
+        recipes = data.get('results', [])
+    else:
+        recipes = []
+
+    return render_template('food_list.html', recipes=recipes, goal=goal)
+
 
 @app.route('/calculations')
 def calculations():

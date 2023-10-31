@@ -5,17 +5,90 @@
   --pop-color: #ffba00;
 }
 
-h1 {
-  padding-left: 1rem;
-  color: var(--primary-color);
-}
-
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #f4f4f4; /* A light gray background color */
+}
+
+h1,
+h2 {
+  padding-left: 1rem;
+  color: var(--primary-color);
+}
+
+h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--pop-color); /* Changed to pop color for consistency */
+  padding-bottom: 8px;
 }
 
 .footer {
   margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: var(--light-color);
+  border: 1px solid #ddd;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+h3 {
+  margin: 0;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: var(--pop-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  margin: 20px 0;
+}
+
+p {
+  margin: 8px 0;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--pop-color);
+  color: var(--light-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e39b00; /* A slightly darker version of pop color */
+}
+/* For images inside the food_list */
+.food-list-img {
+  max-width: 250px; /* You can adjust this as per your design needs */
+  max-height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* These two lines will center the image within its container */
 }
