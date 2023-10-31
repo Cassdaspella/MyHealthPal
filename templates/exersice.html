@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Exercise</h2>
+
+    <p>Welcome to the Exercise section of HealthPal. Regular exercise is essential for maintaining a healthy lifestyle. Here are some exercise routines and tips to help you stay fit and active.</p>
+
+    <h3>Cardio Workouts</h3>
+    <p>Cardiovascular exercises are great for improving heart health and burning calories:</p>
+
+    <h4>Running</h4>
+    <p>Duration: 30-60 minutes</p>
+    <p>Description: Running is a fantastic way to boost your cardiovascular fitness. It can be done outdoors or on a treadmill.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="running-duration">Duration (minutes):</label>
+        <input type="number" id="running-duration" name="running-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="running-completed" name="running-completed">
+        <label class="form-check-label" for="running-completed">Completed</label>
+    </div>
+
+    <h4>Cycling</h4>
+    <p>Duration: 45 minutes</p>
+    <p>Description: Biking is a low-impact exercise that's gentle on the joints and offers an excellent cardio workout.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="cycling-duration">Duration (minutes):</label>
+        <input type="number" id="cycling-duration" name="cycling-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cycling-completed" name="cycling-completed">
+        <label class="form-check-label" for="cycling-completed">Completed</label>
+    </div>
+
+    <!-- Repeat the above pattern for other exercises -->
+
+    <h3>Strength Training</h3>
+    <p>Strength training helps build muscle, increase metabolism, and improve overall strength:</p>
+
+    <h4>Bodyweight Exercises</h4>
+    <p>Duration: 20-30 minutes</p>
+    <p>Description: Perform exercises like push-ups, squats, and planks using your body weight as resistance.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="bodyweight-duration">Duration (minutes):</label>
+        <input type="number" id="bodyweight-duration" name="bodyweight-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="bodyweight-completed" name="bodyweight-completed">
+        <label class="form-check-label" for="bodyweight-completed">Completed</label>
+    </div>
+
+    <h4>Dumbbell Workouts</h4>
+    <p>Duration: 45 minutes</p>
+    <p>Description: Incorporate dumbbells into your routine for added resistance and muscle development.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="dumbbell-duration">Duration (minutes):</label>
+        <input type="number" id="dumbbell-duration" name="dumbbell-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dumbbell-completed" name="dumbbell-completed">
+        <label class="form-check-label" for="dumbbell-completed">Completed</label>
+    </div>
+
+    <!-- Repeat the above pattern for other strength training exercises -->
+
+    <h3>Flexibility and Mobility</h3>
+    <p>Enhance your flexibility and mobility with these exercises:</p>
+
+    <h4>Yoga</h4>
+    <p>Duration: 45 minutes</p>
+    <p>Description: Yoga combines poses, stretches, and deep breathing to improve flexibility and reduce stress.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="yoga-duration">Duration (minutes):</label>
+        <input type="number" id="yoga-duration" name="yoga-duration" class="form-control" required>
+    </div>
+    <div class form-check>
+        <input class="form-check-input" type="checkbox" id="yoga-completed" name="yoga-completed">
+        <label class="form-check-label" for="yoga-completed">Completed</label>
+    </div>
+
+    <h4>Pilates</h4>
+    <p>Duration: 30 minutes</p>
+    <p>Description: Pilates focuses on core strength, posture, and flexibility. It's great for toning and balance.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="pilates-duration">Duration (minutes):</label>
+        <input type="number" id="pilates-duration" name="pilates-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pilates-completed" name="pilates-completed">
+        <label class="form-check-label" for="pilates-completed">Completed</label>
+    </div>
+
+    <!-- Repeat the above pattern for other flexibility and mobility exercises -->
+
+    <h3>Exercise Tips</h3>
+    <ul>
+        <li>Stay hydrated before, during, and after your workout.</li>
+        <li>Always warm up to prepare your muscles and cool down to aid recovery.</li>
+        <li>Include a mix of cardio, strength, and flexibility exercises in your weekly routine.</li>
+        <li>Listen to your body and avoid pushing yourself too hard, especially if you're a beginner.</li>
+        <li>Set specific fitness goals to track your progress and stay motivated.</li>
+    </ul>
+</div>
+{% endblock %}

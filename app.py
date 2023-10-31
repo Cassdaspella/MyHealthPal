@@ -114,6 +114,16 @@ def logout():
 def home():
     return render_template("index.html")
 
+@app.route('/questionnaire', methods=['GET', 'POST'])
+def questionnaire():
+    if request.method == 'POST':
+        # Process the submitted form data here (e.g., store it in a database).
+        # You can access form data using request.form['fieldname'].
+
+        # Redirect back to the index.html page after form submission.
+        return redirect(url_for('index'))
+    return render_template('questionnaire.html')
+
 # Helper functions
 @login_manager.user_loader
 def load_user(user_id):

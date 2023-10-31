@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+<div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container text-center">
+      <h1>Need help? Contact us!</h1>
+      <form action="/email" method="post">
+        <div class="form-group">
+          <label for="name">Name*:</label>
+          <input type="text" class="form-control" name="name" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email*:</label>
+            <input type="text" class="form-control" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+          </div>
+        <div class="form-group">
+          <label for="concern">Concern</label>
+          <textarea class="form-control" name="concern" rows="10" cols="50" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Content Section -->
+  <div class="container my-5">
+    <h2>Want other ways to contact us?</h2>
+    <h3>Contact us through email or direct messaging!</h3>
+    <hr>
+    <p>
+      Email: 
+      <br>
+      MyHealPayl@gmail.com
+      <br><br>
+      Phonenumber:
+      <br>
+      (123)456-7890      
+    </p>
+  </div>
+{% endblock %}
