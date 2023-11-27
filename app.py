@@ -8,8 +8,6 @@ import requests
 
 app = Flask(__name__)
 
-
-#testing assignment
 # Configuration
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -35,6 +33,56 @@ class User(UserMixin, db.Model):
     activity_level = db.Column(db.String(150), nullable=True)
     health_concerns = db.Column(db.String(500), nullable=True)
 
+# BMR Calculator Route 
+def calculate_bmr(weight, height, age, gender, activity_level):
+    multipliers = {
+        'extra-active': 1.9,
+        'very-active': 1.725,
+        'lightly-active': 1.375,
+        'moderately-active': 1.55,
+        'sedentary': 1.2
+    }
+
+    if gender == "male":
+        bmr = 13.397 * weight + 4.799 * height - 5.677 * age + 88.362
+    else:
+        bmr = 9.247 * weight + 3.098 * height - 4.330 * age + 447.593
+
+    activity_multiplier = multipliers.get(activity_level, 1.2)
+    return bmr * activity_multiplier
+
+# Route to handle BMR calculation
+@app.route('/calculate_bmr', methods=['POST'])
+def calculate_bmr_route():
+    data = request.get_json()
+
+    user_weight = float(data['weight'])
+    user_height = float(data['height'])
+    user_age = int(data['age'])
+    user_gender = data['gender']
+    activity_level = data['activityLevel']
+
+    bmr = calculate_bmr(user_weight, user_height, user_age, user_gender, activity_level)
+
+    return {'bmr': bmr}
+
+def calculate_calories(goal, user):
+    if goal == 'maintenance':
+        return user.calorie_intake
+    elif goal == 'mild_weight_loss':
+        return user.calorie_intake - 250
+    elif goal == 'weight_loss':
+        return user.calorie_intake - 500
+    elif goal == 'extreme_weight_loss':
+        return user.calorie_intake - 1000
+    elif goal == 'mild_weight_gain':
+        return user.calorie_intake + 250
+    elif goal == 'weight_gain':
+        return user.calorie_intake + 500
+    elif goal == 'extreme_weight_gain':
+        return user.calorie_intake + 1000
+    else:
+        return None  # Handle invalid goal types
 
 # Routes
 @app.route("/register", methods=["GET", "POST"])
@@ -45,7 +93,10 @@ def register():
         weight = float(request.form.get("weight"))  # Convert to float
         height = float(request.form.get("height"))  # Convert to float
         goal = request.form.get("goal")  # Use the request object to get the goal
-      
+        age = int(request.form.get('age'))
+        gender = request.form.get('gender')
+        activity_level = request.form.get('activity-level')
+
         hashed_password = generate_password_hash(password, method='sha256')
 
         if goal == 'bulk':
@@ -53,14 +104,17 @@ def register():
         else:  # goal == 'cut'
             calories = (10 * float(weight) + 6.25 * float(height) - 5 * 25 + 5) * 0.9  # Example formula
 
-        new_user = User(username=username, password=hashed_password, weight=weight, height=height, goal=goal, calorie_intake=calories)
+        new_user = User(username=username, password=hashed_password, weight=weight, height=height, goal=goal,
+                        calorie_intake=calories, name=None, age=age, gender=gender, birthday=None,
+                        activity_level=activity_level, health_concerns=None)
         db.session.add(new_user)
         db.session.commit()
-        
-        flash(f'Registration successful! Your daily calorie target is {calories:.0f} kcal.', 'success')
-        return redirect(url_for('login'))
-    return render_template("register.html")
 
+        flash(f'Registration successful! Your daily calorie target is {calories:.0f} kcal.', 'success')
+        login_user(new_user)  # Automatically log in the new user
+        return redirect(url_for('profile'))
+
+    return render_template("register.html")
 
 # Routes
 @app.route('/')
@@ -167,7 +221,27 @@ def questionnaire():
 @login_required
 def profile():
     calorie_intake = current_user.calorie_intake
-    return render_template("profile.html", calorie_intake=calorie_intake)
+
+    # Additional calorie outputs
+    maintenance_calories = calculate_calories("maintenance", current_user)
+    mild_weight_loss = calculate_calories("mild_weight_loss", current_user)
+    weight_loss = calculate_calories("weight_loss", current_user)
+    extreme_weight_loss = calculate_calories("extreme_weight_loss", current_user)
+    mild_weight_gain = calculate_calories("mild_weight_gain", current_user)
+    weight_gain = calculate_calories("weight_gain", current_user)
+    extreme_weight_gain = calculate_calories("extreme_weight_gain", current_user)
+
+    return render_template(
+        "profile.html",
+        calorie_intake=calorie_intake,
+        maintenance_calories=maintenance_calories,
+        mild_weight_loss=mild_weight_loss,
+        weight_loss=weight_loss,
+        extreme_weight_loss=extreme_weight_loss,
+        mild_weight_gain=mild_weight_gain,
+        weight_gain=weight_gain,
+        extreme_weight_gain=extreme_weight_gain
+    )
 
 @app.route('/handle_contact', methods=['POST'])
 def handle_contact():

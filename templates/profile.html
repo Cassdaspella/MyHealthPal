@@ -1,9 +1,19 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 <h2>Welcome, {{ current_user.username }}</h2>
 
 <h2>Weight: {{ current_user.weight }} kg</h2>
 <h2>Height: {{ current_user.height }} cm</h2>
-<h2>Your Daily Calorie Intake: {{ calorie_intake }} kcal</h2>
+
+
+<!-- Additional calorie outputs -->
+<h2>Maintenance Calories: {{ maintenance_calories|round(0) }} kcal</h2>
+<h2>Mild Weight Loss: {{ mild_weight_loss|round(0) }} kcal</h2>
+<h2>Weight Loss: {{ weight_loss|round(0) }} kcal</h2>
+<h2>Extreme Weight Loss: {{ extreme_weight_loss|round(0) }} kcal</h2>
+<h2>Mild Weight Gain: {{ mild_weight_gain|round(0) }} kcal</h2>
+<h2>Weight Gain: {{ weight_gain|round(0) }} kcal</h2>
+<h2>Extreme Weight Gain: {{ extreme_weight_gain|round(0) }} kcal</h2>
 
 <!-- Displaying data from the questionnaire -->
 <h2>Name: {{ current_user.name }}</h2>
