@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from datetime import date
 import requests
 
+
 app = Flask(__name__)
 
 # Configuration
@@ -97,7 +98,7 @@ def register():
         gender = request.form.get('gender')
         activity_level = request.form.get('activity-level')
 
-        hashed_password = generate_password_hash(password, method='sha256')
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
 
         if goal == 'bulk':
             calories = (10 * float(weight) + 6.25 * float(height) - 5 * 25 + 5) * 1.1  # Example formula
