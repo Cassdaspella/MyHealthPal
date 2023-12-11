@@ -108,3 +108,8 @@ button:hover {
 html {
   height: 101%;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
