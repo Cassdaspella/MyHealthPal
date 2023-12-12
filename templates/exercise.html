@@ -105,13 +105,110 @@
 
     <!-- Repeat the above pattern for other flexibility and mobility exercises -->
 
-    <h3>Exercise Tips</h3>
-    <ul>
-        <li>Stay hydrated before, during, and after your workout.</li>
-        <li>Always warm up to prepare your muscles and cool down to aid recovery.</li>
-        <li>Include a mix of cardio, strength, and flexibility exercises in your weekly routine.</li>
-        <li>Listen to your body and avoid pushing yourself too hard, especially if you're a beginner.</li>
-        <li>Set specific fitness goals to track your progress and stay motivated.</li>
-    </ul>
 </div>
+
+<div class="exercise-tips mt-4">
+    <h2>Exercise Tips</h2>
+
+    <div class="accordion">
+        <button class="accordion-btn" onclick="toggleAccordion('tip1')">Stay hydrated</button>
+        <div id="tip1" class="accordion-content">
+            <p>Remember to drink water before, during, and after your workout to stay hydrated.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip2')">Warm up and cool down</button>
+        <div id="tip2" class="accordion-content">
+            <p>Always warm up before your workout to prepare your muscles and cool down afterward to aid recovery.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip3')">Differnt exercises</button>
+        <div id="tip2" class="accordion-content">
+            <p>Include a mix of cardio, strength, and flexibility exercises in your weekly routine.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip4')"> Exercise Wisely</button>
+        <div id="tip2" class="accordion-content">
+            <p>Listen to your body and avoid pushing yourslef too hard, especially if you're a beginner.<p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip5')"> GoalsExercise Wisely</button>
+        <div id="tip2" class="accordion-content">
+            <p>Set specific fitness goals to track your progress and stay motivated</p>
+        </div>
+        
+    </div>
+    <script>
+        function toggleAccordion(tipId) {
+            var tipContent = document.getElementById(tipId);
+    
+            // Toggle the visibility of the content
+            if (tipContent.style.display === 'block') {
+                tipContent.style.display = 'none';
+            } else {
+                tipContent.style.display = 'block';
+            }
+        }
+    </script>
+</div>
+
+<div id="countdown" class="mt-4">
+    <h3>Time Remaining: <span id="timer">1:00:00</span></h3>
+</div>
+
+<div id="countdown" class="mt-4">
+    <h3>Time Remaining: <span id="timer">1:00:00</span></h3>
+</div>
+
+<!-- Buttons for controlling the countdown timer -->
+<div class="mt-3">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+</div>
+
+<script>
+    var timer; // Variable to store the interval ID
+
+    function startTimer() {
+        // Set the timer duration to 1 hour (60 minutes)
+        var timerDuration = 60 * 60; // in seconds
+
+        // Start the countdown timer
+        timer = setInterval(function () {
+            var hours = Math.floor(timerDuration / 3600);
+            var minutes = Math.floor((timerDuration % 3600) / 60);
+            var seconds = timerDuration % 60;
+
+            // Format the time as HH:MM:SS
+            var formattedTime = hours.toString().padStart(2, '0') + ':' +
+                                minutes.toString().padStart(2, '0') + ':' +
+                                seconds.toString().padStart(2, '0');
+
+            // Update the timer element
+            document.getElementById('timer').textContent = formattedTime;
+
+            // Decrease the timer duration
+            timerDuration--;
+
+            // Check if the timer reaches 0
+            if (timerDuration < 0) {
+                clearInterval(timer); // Stop the countdown
+                document.getElementById('timer').textContent = 'Time Up!';
+            }
+        }, 1000); // Update every 1000 milliseconds (1 second)
+    }
+
+    function stopTimer() {
+        // Stop the countdown timer
+        clearInterval(timer);
+    }
+
+    function resetTimer() {
+        // Stop the countdown timer and reset the timer element
+        clearInterval(timer);
+        document.getElementById('timer').textContent = '1:00:00';
+    }
+</script>
+</div>
+
 {% endblock %}
