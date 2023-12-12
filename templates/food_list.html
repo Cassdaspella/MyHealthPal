@@ -15,6 +15,11 @@
 <h2>Recipes for {{ goal.capitalize() }}</h2>
 
 <ul>
+  
+  <div class="center">  
+    <button onclick="history.back()">Go Back</button>
+  </div>
+  <br>
   {% for recipe in recipes %}
   <li>
     <h3>{{ recipe.title }}</h3>
@@ -26,5 +31,9 @@
     <p><a href="{{ recipe.sourceUrl }}" target="_blank">View Recipe</a></p>
   </li>
   {% endfor %}
+  <br>
+  <div class="container">  
+    <button onclick="history.back()">Go Back</button>
+  </div>
 </ul>
 {% endif %} {% endblock %}

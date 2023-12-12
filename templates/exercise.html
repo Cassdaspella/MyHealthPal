@@ -46,88 +46,209 @@
 <div class="container mt-5">
     <h2>Exercise</h2>
 
-    <fieldset>
-        <legend>Cardio Workouts</legend>
-        <h4>Running</h4>
-        <p>Duration: 30-60 minutes</p>
-        <p>Description: Running is a fantastic way to boost your cardiovascular fitness. It can be done outdoors or on a treadmill.</p>
-        <div class="form-group">
-            <label for="running-duration">Duration (minutes):</label>
-            <input type="number" id="running-duration" name="running-duration" class="form-control" required>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="completed-running" name="completed-running">
-            <label class="form-check-label" for="completed-running">Completed</label>
-        </div>
-        <div class="form-group">
-            <label for="running-calories">Estimated Calories Burned:</label>
-            <span id="running-calories"></span>
-        </div>
-        <script>
-            document.getElementById('running-duration').addEventListener('input', function () {
-                updateCalories('running');
-            });
-        </script>
+    <p>Welcome to the Exercise section of HealthPal. Regular exercise is essential for maintaining a healthy lifestyle. Here are some exercise routines and tips to help you stay fit and active.</p>
 
-        <!-- Add more cardio exercises if needed -->
-    </fieldset>
+    <h3>Cardio Workouts</h3>
+    <p>Cardiovascular exercises are great for improving heart health and burning calories:</p>
 
-    <fieldset>
-        <legend>Strength Training</legend>
-        <h4>Bodyweight Exercises</h4>
-        <p>Duration: 20-30 minutes</p>
-        <p>Description: Perform exercises like push-ups, squats, and planks using your body weight as resistance.</p>
-        <div class="form-group">
-            <label for="bodyweight-duration">Duration (minutes):</label>
-            <input type="number" id="bodyweight-duration" name="bodyweight-duration" class="form-control" required>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="completed-bodyweight" name="completed-bodyweight">
-            <label class="form-check-label" for="completed-bodyweight">Completed</label>
-        </div>
-        <div class="form-group">
-            <label for="bodyweight-calories">Estimated Calories Burned:</label>
-            <span id="bodyweight-calories"></span>
-        </div>
-        <script>
-            document.getElementById('bodyweight-duration').addEventListener('input', function () {
-                updateCalories('bodyweight');
-            });
-        </script>
-    </fieldset>
+    <h4>Running</h4>
+    <p>Duration: 30-60 minutes</p>
+    <p>Description: Running is a fantastic way to boost your cardiovascular fitness. It can be done outdoors or on a treadmill.</p>
 
-    <fieldset>
-        <legend>Flexibility and Mobility</legend>
-        <h4>Yoga</h4>
-        <p>Duration: 45 minutes</p>
-        <p>Description: Yoga combines poses, stretches, and deep breathing to improve flexibility and reduce stress.</p>
-        <div class="form-group">
-            <label for="yoga-duration">Duration (minutes):</label>
-            <input type="number" id="yoga-duration" name="yoga-duration" class="form-control" required>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="completed-yoga" name="completed-yoga">
-            <label class="form-check-label" for="completed-yoga">Completed</label>
-        </div>
-        <div class="form-group">
-            <label for="yoga-calories">Estimated Calories Burned:</label>
-            <span id="yoga-calories"></span>
-        </div>
-        <script>
-            document.getElementById('yoga-duration').addEventListener('input', function () {
-                updateCalories('yoga');
-            });
-        </script>
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="running-duration">Duration (minutes):</label>
+        <input type="number" id="running-duration" name="running-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="running-completed" name="running-completed">
+        <label class="form-check-label" for="running-completed">Completed</label>
+    </div>
 
-    </fieldset>
+    <h4>Cycling</h4>
+    <p>Duration: 45 minutes</p>
+    <p>Description: Biking is a low-impact exercise that's gentle on the joints and offers an excellent cardio workout.</p>
 
-    <h3>Exercise Tips</h3>
-    <ul>
-        <li>Stay hydrated before, during, and after your workout.</li>
-        <li>Always warm up to prepare your muscles and cool down to aid recovery.</li>
-        <li>Include a mix of cardio, strength, and flexibility exercises in your weekly routine.</li>
-        <li>Listen to your body and avoid pushing yourself too hard, especially if you're a beginner.</li>
-        <li>Set specific fitness goals to track your progress and stay motivated.</li>
-    </ul>
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="cycling-duration">Duration (minutes):</label>
+        <input type="number" id="cycling-duration" name="cycling-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cycling-completed" name="cycling-completed">
+        <label class="form-check-label" for="cycling-completed">Completed</label>
+    </div>
+
+    <!-- Repeat the above pattern for other exercises -->
+
+    <h3>Strength Training</h3>
+    <p>Strength training helps build muscle, increase metabolism, and improve overall strength:</p>
+
+    <h4>Bodyweight Exercises</h4>
+    <p>Duration: 20-30 minutes</p>
+    <p>Description: Perform exercises like push-ups, squats, and planks using your body weight as resistance.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="bodyweight-duration">Duration (minutes):</label>
+        <input type="number" id="bodyweight-duration" name="bodyweight-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="bodyweight-completed" name="bodyweight-completed">
+        <label class="form-check-label" for="bodyweight-completed">Completed</label>
+    </div>
+
+    <h4>Dumbbell Workouts</h4>
+    <p>Duration: 45 minutes</p>
+    <p>Description: Incorporate dumbbells into your routine for added resistance and muscle development.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="dumbbell-duration">Duration (minutes):</label>
+        <input type="number" id="dumbbell-duration" name="dumbbell-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dumbbell-completed" name="dumbbell-completed">
+        <label class="form-check-label" for="dumbbell-completed">Completed</label>
+    </div>
+
+    <!-- Repeat the above pattern for other strength training exercises -->
+
+    <h3>Flexibility and Mobility</h3>
+    <p>Enhance your flexibility and mobility with these exercises:</p>
+
+    <h4>Yoga</h4>
+    <p>Duration: 45 minutes</p>
+    <p>Description: Yoga combines poses, stretches, and deep breathing to improve flexibility and reduce stress.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="yoga-duration">Duration (minutes):</label>
+        <input type="number" id="yoga-duration" name="yoga-duration" class="form-control" required>
+    </div>
+    <div class form-check>
+        <input class="form-check-input" type="checkbox" id="yoga-completed" name="yoga-completed">
+        <label class="form-check-label" for="yoga-completed">Completed</label>
+    </div>
+
+    <h4>Pilates</h4>
+    <p>Duration: 30 minutes</p>
+    <p>Description: Pilates focuses on core strength, posture, and flexibility. It's great for toning and balance.</p>
+
+    <!-- Add input fields for exercise duration and a checkbox to mark completion -->
+    <div class="form-group">
+        <label for="pilates-duration">Duration (minutes):</label>
+        <input type="number" id="pilates-duration" name="pilates-duration" class="form-control" required>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pilates-completed" name="pilates-completed">
+        <label class="form-check-label" for="pilates-completed">Completed</label>
+    </div>
+
+    <!-- Repeat the above pattern for other flexibility and mobility exercises -->
+
 </div>
+<div class="exercise-tips mt-4">
+    <h2>Exercise Tips</h2>
+
+    <div class="accordion">
+        <button class="accordion-btn" onclick="toggleAccordion('tip1')">Stay hydrated</button>
+        <div id="tip1" class="accordion-content">
+            <p>Remember to drink water before, during, and after your workout to stay hydrated.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip2')">Warm up and cool down</button>
+        <div id="tip2" class="accordion-content">
+            <p>Always warm up before your workout to prepare your muscles and cool down afterward to aid recovery.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip3')">Different exercises</button>
+        <div id="tip3" class="accordion-content">
+            <p>Include a mix of cardio, strength, and flexibility exercises in your weekly routine.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip4')">Exercise wisely</button>
+        <div id="tip4" class="accordion-content">
+            <p>Listen to your body and avoid pushing yourself too hard, especially if you're a beginner.</p>
+        </div>
+
+        <button class="accordion-btn" onclick="toggleAccordion('tip5')">Set goals</button>
+        <div id="tip5" class="accordion-content">
+            <p>Set specific fitness goals to track your progress and stay motivated.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(tipId) {
+        var tipContent = document.getElementById(tipId);
+
+        // Toggle the visibility of the content
+        if (tipContent.style.display === 'block') {
+            tipContent.style.display = 'none';
+        } else {
+            tipContent.style.display = 'block';
+        }
+    }
+</script>
+
+<div id="countdown" class="mt-4">
+    <h3>Time Remaining: <span id="timer">1:00:00</span></h3>
+</div>
+
+<!-- Buttons for controlling the countdown timer -->
+<div class="mt-3">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+</div>
+
+<script>
+    var timer; // Variable to store the interval ID
+
+    function startTimer() {
+        // Set the timer duration to 1 hour (60 minutes)
+        var timerDuration = 60 * 60; // in seconds
+
+        // Start the countdown timer
+        timer = setInterval(function () {
+            var hours = Math.floor(timerDuration / 3600);
+            var minutes = Math.floor((timerDuration % 3600) / 60);
+            var seconds = timerDuration % 60;
+
+            // Format the time as HH:MM:SS
+            var formattedTime = hours.toString().padStart(2, '0') + ':' +
+                                minutes.toString().padStart(2, '0') + ':' +
+                                seconds.toString().padStart(2, '0');
+
+            // Update the timer element
+            document.getElementById('timer').textContent = formattedTime;
+
+            // Decrease the timer duration
+            timerDuration--;
+
+            // Check if the timer reaches 0
+            if (timerDuration < 0) {
+                clearInterval(timer); // Stop the countdown
+                document.getElementById('timer').textContent = 'Time Up!';
+            }
+        }, 1000); // Update every 1000 milliseconds (1 second)
+    }
+
+    function stopTimer() {
+        // Stop the countdown timer
+        clearInterval(timer);
+    }
+
+    function resetTimer() {
+        // Stop the countdown timer and reset the timer element
+        clearInterval(timer);
+        document.getElementById('timer').textContent = '1:00:00';
+    }
+</script>
+</div>
+
+
+
+
 {% endblock %}

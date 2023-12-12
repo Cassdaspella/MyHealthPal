@@ -11,7 +11,11 @@ body {
   min-height: 100vh;
   background-color: #f4f4f4; /* A light gray background color */
 }
-
+.icon-pic {
+  width: 100px;
+  height:auto;
+  padding-bottom: 15px;
+}
 h1,
 h2 {
   padding-left: 1rem;
@@ -21,7 +25,7 @@ h2 {
 h2 {
   text-align: center;
   border-bottom: 2px solid var(--pop-color); /* Changed to pop color for consistency */
-  padding-bottom: 8px;
+  padding-bottom: 20px;
 }
 
 .footer {
@@ -52,6 +56,8 @@ img {
 h3 {
   margin: 0;
   color: #333;
+  padding-top: 17px;
+  padding-bottom: 15px;
 }
 
 a {
@@ -69,6 +75,7 @@ ul {
 
 p {
   margin: 8px 0;
+  padding: 20px;
 }
 
 button {
@@ -91,4 +98,15 @@ button:hover {
   display: block;
   margin-left: auto;
   margin-right: auto; /* These two lines will center the image within its container */
+}
+.bg {
+  background-color: #CAE5A5;
+}
+html {
+  height: 101%;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
