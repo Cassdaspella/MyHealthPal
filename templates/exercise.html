@@ -13,6 +13,8 @@
     <p>Duration: 30-60 minutes</p>
     <p>Description: Running is a fantastic way to boost your cardiovascular fitness. It can be done outdoors or on a treadmill.</p>
 
+    
+
     <!-- Add input fields for exercise duration and a checkbox to mark completion -->
     <div class="form-group">
         <label for="running-duration">Duration (minutes):</label>
@@ -106,7 +108,6 @@
     <!-- Repeat the above pattern for other flexibility and mobility exercises -->
 
 </div>
-
 <div class="exercise-tips mt-4">
     <h2>Exercise Tips</h2>
 
@@ -121,39 +122,35 @@
             <p>Always warm up before your workout to prepare your muscles and cool down afterward to aid recovery.</p>
         </div>
 
-        <button class="accordion-btn" onclick="toggleAccordion('tip3')">Differnt exercises</button>
-        <div id="tip2" class="accordion-content">
+        <button class="accordion-btn" onclick="toggleAccordion('tip3')">Different exercises</button>
+        <div id="tip3" class="accordion-content">
             <p>Include a mix of cardio, strength, and flexibility exercises in your weekly routine.</p>
         </div>
 
-        <button class="accordion-btn" onclick="toggleAccordion('tip4')"> Exercise Wisely</button>
-        <div id="tip2" class="accordion-content">
-            <p>Listen to your body and avoid pushing yourslef too hard, especially if you're a beginner.<p>
+        <button class="accordion-btn" onclick="toggleAccordion('tip4')">Exercise wisely</button>
+        <div id="tip4" class="accordion-content">
+            <p>Listen to your body and avoid pushing yourself too hard, especially if you're a beginner.</p>
         </div>
 
-        <button class="accordion-btn" onclick="toggleAccordion('tip5')"> GoalsExercise Wisely</button>
-        <div id="tip2" class="accordion-content">
-            <p>Set specific fitness goals to track your progress and stay motivated</p>
+        <button class="accordion-btn" onclick="toggleAccordion('tip5')">Set goals</button>
+        <div id="tip5" class="accordion-content">
+            <p>Set specific fitness goals to track your progress and stay motivated.</p>
         </div>
-        
     </div>
-    <script>
-        function toggleAccordion(tipId) {
-            var tipContent = document.getElementById(tipId);
-    
-            // Toggle the visibility of the content
-            if (tipContent.style.display === 'block') {
-                tipContent.style.display = 'none';
-            } else {
-                tipContent.style.display = 'block';
-            }
-        }
-    </script>
 </div>
 
-<div id="countdown" class="mt-4">
-    <h3>Time Remaining: <span id="timer">1:00:00</span></h3>
-</div>
+<script>
+    function toggleAccordion(tipId) {
+        var tipContent = document.getElementById(tipId);
+
+        // Toggle the visibility of the content
+        if (tipContent.style.display === 'block') {
+            tipContent.style.display = 'none';
+        } else {
+            tipContent.style.display = 'block';
+        }
+    }
+</script>
 
 <div id="countdown" class="mt-4">
     <h3>Time Remaining: <span id="timer">1:00:00</span></h3>
@@ -210,5 +207,8 @@
     }
 </script>
 </div>
+
+
+
 
 {% endblock %}
